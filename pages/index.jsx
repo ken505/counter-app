@@ -1,4 +1,5 @@
 import { DarkModeMenu } from "../components/DarkModeMenu";
+import { InfoModal } from "../components/InfoModal";
 import { Minus } from "../components/Minus";
 import { Pulus } from "../components/Pulus";
 
@@ -14,6 +15,7 @@ export default function Home() {
         <Minus />
         <Pulus />
       </div>
+      <InfoModal />
     </div>
   );
 }
