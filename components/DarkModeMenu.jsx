@@ -32,7 +32,7 @@ export function DarkModeMenu() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-violet-500 text-purple-700" : "text-gray-600"
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                   >
                     {active ? (
@@ -54,7 +54,7 @@ export function DarkModeMenu() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-violet-500 text-purple-700" : "text-gray-600"
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                   >
                     {active ? (
@@ -78,7 +78,7 @@ export function DarkModeMenu() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-violet-500 text-purple-700" : "text-gray-600"
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                   >
                     {active ? (
@@ -104,7 +104,7 @@ export function DarkModeMenu() {
   );
 }
 
-// darkmode not active icon
+// Night theme not active icon
 function EditInactiveIcon(props) {
   return (
     <svg
@@ -123,7 +123,7 @@ function EditInactiveIcon(props) {
   );
 }
 
-// darkmode active icon
+// Night theme active icon
 function EditActiveIcon(props) {
   return (
     <svg
@@ -142,188 +142,102 @@ function EditActiveIcon(props) {
   );
 }
 
+// Day theme non active icon
 function DuplicateInactiveIcon(props) {
   return (
     <svg
       {...props}
-      viewBox="0 0 20 20"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M4 4H12V12H4V4Z"
+        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
         fill="#EDE9FE"
         stroke="#A78BFA"
-        strokeWidth="2"
-      />
-      <path
-        d="M8 8H16V16H8V8Z"
-        fill="#EDE9FE"
-        stroke="#A78BFA"
+        stroke-linecap="round"
+        stroke-linejoin="round"
         strokeWidth="2"
       />
     </svg>
   );
 }
 
+// Day thme active icon
 function DuplicateActiveIcon(props) {
   return (
     <svg
       {...props}
-      viewBox="0 0 20 20"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M4 4H12V12H4V4Z"
+        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
         fill="#8B5CF6"
         stroke="#C4B5FD"
-        strokeWidth="2"
-      />
-      <path
-        d="M8 8H16V16H8V8Z"
-        fill="#8B5CF6"
-        stroke="#C4B5FD"
+        stroke-linecap="round"
+        stroke-linejoin="round"
         strokeWidth="2"
       />
     </svg>
   );
 }
 
+// Sync thme non active
 function ArchiveInactiveIcon(props) {
   return (
     <svg
       {...props}
-      viewBox="0 0 20 20"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect
-        x="5"
-        y="8"
-        width="10"
-        height="8"
+      <path
         fill="#EDE9FE"
         stroke="#A78BFA"
-        strokeWidth="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
       />
-      <rect
-        x="4"
-        y="4"
-        width="12"
-        height="4"
+      <path
         fill="#EDE9FE"
         stroke="#A78BFA"
-        strokeWidth="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
       />
-      <path d="M8 12H12" stroke="#A78BFA" strokeWidth="2" />
     </svg>
   );
 }
 
+// Sync thme active
 function ArchiveActiveIcon(props) {
   return (
     <svg
       {...props}
-      viewBox="0 0 20 20"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect
-        x="5"
-        y="8"
-        width="10"
-        height="8"
-        fill="#8B5CF6"
-        stroke="#C4B5FD"
-        strokeWidth="2"
+      <path
+        fill="#A78BFA"
+        stroke="#EDE9FE"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
       />
-      <rect
-        x="4"
-        y="4"
-        width="12"
-        height="4"
-        fill="#8B5CF6"
-        stroke="#C4B5FD"
-        strokeWidth="2"
+      <path
+        fill="#A78BFA"
+        stroke="#EDE9FE"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
       />
-      <path d="M8 12H12" stroke="#A78BFA" strokeWidth="2" />
     </svg>
   );
 }
-
-// function MoveInactiveIcon(props) {
-//   return (
-//     <svg
-//       {...props}
-//       viewBox="0 0 20 20"
-//       fill="none"
-//       xmlns="http://www.w3.org/2000/svg"
-//     >
-//       <path d="M10 4H16V10" stroke="#A78BFA" strokeWidth="2" />
-//       <path d="M16 4L8 12" stroke="#A78BFA" strokeWidth="2" />
-//       <path d="M8 6H4V16H14V12" stroke="#A78BFA" strokeWidth="2" />
-//     </svg>
-//   )
-// }
-
-// function MoveActiveIcon(props) {
-//   return (
-//     <svg
-//       {...props}
-//       viewBox="0 0 20 20"
-//       fill="none"
-//       xmlns="http://www.w3.org/2000/svg"
-//     >
-//       <path d="M10 4H16V10" stroke="#C4B5FD" strokeWidth="2" />
-//       <path d="M16 4L8 12" stroke="#C4B5FD" strokeWidth="2" />
-//       <path d="M8 6H4V16H14V12" stroke="#C4B5FD" strokeWidth="2" />
-//     </svg>
-//   )
-// }
-
-// function DeleteInactiveIcon(props) {
-//   return (
-//     <svg
-//       {...props}
-//       viewBox="0 0 20 20"
-//       fill="none"
-//       xmlns="http://www.w3.org/2000/svg"
-//     >
-//       <rect
-//         x="5"
-//         y="6"
-//         width="10"
-//         height="10"
-//         fill="#EDE9FE"
-//         stroke="#A78BFA"
-//         strokeWidth="2"
-//       />
-//       <path d="M3 6H17" stroke="#A78BFA" strokeWidth="2" />
-//       <path d="M8 6V4H12V6" stroke="#A78BFA" strokeWidth="2" />
-//     </svg>
-//   )
-// }
-
-// function DeleteActiveIcon(props) {
-//   return (
-//     <svg
-//       {...props}
-//       viewBox="0 0 20 20"
-//       fill="none"
-//       xmlns="http://www.w3.org/2000/svg"
-//     >
-//       <rect
-//         x="5"
-//         y="6"
-//         width="10"
-//         height="10"
-//         fill="#8B5CF6"
-//         stroke="#C4B5FD"
-//         strokeWidth="2"
-//       />
-//       <path d="M3 6H17" stroke="#C4B5FD" strokeWidth="2" />
-//       <path d="M8 6V4H12V6" stroke="#C4B5FD" strokeWidth="2" />
-//     </svg>
-//   )
-// }
