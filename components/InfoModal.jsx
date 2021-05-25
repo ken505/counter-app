@@ -21,7 +21,20 @@ export function InfoModal() {
           onClick={openModal}
           className="px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
-          i
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 dark:text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
         </button>
       </div>
 
@@ -65,12 +78,12 @@ export function InfoModal() {
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900"
                 >
-                  A counter with a simple design and excellent usability. ✨
+                  This counter is beautiful and easy to use. ✨
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    Pressing the plus button increases the value by one, and
-                    pressing the minus button decreases it by one.
+                    The dark mode of this app is linked to your browser
+                    settings.
                   </p>
                 </div>
 

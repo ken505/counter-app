@@ -2,7 +2,7 @@ export function Minus() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-20 w-20 text-gray-100 select-none cursor-pointer hover:text-opacity-60 mx-4"
+      className="h-20 w-20 text-white dark:text-gray-400 select-none cursor-pointer hover:text-opacity-70 mx-4"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
