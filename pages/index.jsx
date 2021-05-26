@@ -12,7 +12,7 @@ export default function Home() {
     >
       <Head>
         <title>Counter App</title>
-        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <link rel="icon" href="/favicon.ico" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           property="og:url"
