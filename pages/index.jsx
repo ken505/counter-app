@@ -7,7 +7,7 @@ import { SnsShare } from "../components/SnsShare";
 export default function Home() {
   return (
     <div
-      className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-green-300 dark:from-purple-900 to-blue-400 dark:to-blue-700
+      className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800
     "
     >
       <Head>
@@ -25,7 +25,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://user-images.githubusercontent.com/68226398/119503313-ce1a0f80-bda5-11eb-880a-036ff2aa6ee9.jpeg"
+          content="https://user-images.githubusercontent.com/68226398/119603826-e97a2e80-be28-11eb-807e-737317ed3326.jpg"
         />
       </Head>
       <h1 className="text-4xl text-white dark:text-gray-400 font-bold select-none">
@@ -44,15 +44,6 @@ export default function Home() {
           url={"https://counter-app-theta.vercel.app/"}
           title={"Counter - App"}
         />
-        <div
-          class="fb-like"
-          data-href="https://counter-app-theta.vercel.app/"
-          data-width=""
-          data-layout="button_count"
-          data-action="like"
-          data-size="small"
-          data-share="false"
-        ></div>
       </div>
     </div>
   );

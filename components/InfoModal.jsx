@@ -15,7 +15,7 @@ export function InfoModal() {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4 flex items-center justify-center">
+      <div className="fixed top-4 right-4 flex items-center justify-center">
         <button
           type="button"
           onClick={openModal}
@@ -23,16 +23,16 @@ export function InfoModal() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 dark:text-gray-400"
+            class="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
             />
           </svg>
         </button>
@@ -41,7 +41,7 @@ export function InfoModal() {
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed -bottom-72 right-8 overflow-y-auto"
+          className="fixed -top-72 right-16 overflow-y-auto"
           onClose={closeModal}
         >
           <div className="min-h-screen px-4 text-center">
@@ -78,7 +78,7 @@ export function InfoModal() {
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900"
                 >
-                  This counter is beautiful and easy to use. ✨
+                  About Dark Mode.
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">

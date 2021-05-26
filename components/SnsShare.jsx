@@ -10,15 +10,27 @@ import {
 export function SnsShare(props) {
   const { url, title } = props;
   return (
-    <div >
+    <div>
       <TwitterShareButton url={url} title={title}>
-        <TwitterIcon size={32} round className="opacity-80 hover:opacity-50 mx-1"/>
+        <TwitterIcon
+          size={32}
+          round
+          className="hover:opacity-70 dark:opacity-40 mx-1"
+        />
       </TwitterShareButton>
       <LineShareButton url={url} title={title}>
-        <LineIcon size={32} round className="opacity-80 hover:opacity-50 mx-1"/>
+        <LineIcon
+          size={32}
+          round
+          className=" hover:opacity-70 dark:opacity-40 mx-1"
+        />
       </LineShareButton>
-      <FacebookShareButton url={url} >
-        <FacebookIcon size={32} round className="opacity-80 hover:opacity-50 mx-1"/>
+      <FacebookShareButton url={url}>
+        <FacebookIcon
+          size={32}
+          round
+          className=" hover:opacity-70 dark:opacity-40  mx-1"
+        />
       </FacebookShareButton>
     </div>
   );
