@@ -66,7 +66,7 @@ export default function Home() {
       >
         Clear
       </h1>
-      <h1 className="h-72 w-40 text-8xl text-white dark:text-gray-400 font-bold flex justify-center items-center select-none">
+      <h1 className="h-64 w-40 text-8xl text-white dark:text-gray-400 font-bold flex justify-center items-center select-none">
         {count}
       </h1>
       <div className="flex">
