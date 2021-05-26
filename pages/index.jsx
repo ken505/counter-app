@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { InfoModal } from "../components/InfoModal";
 import { Minus } from "../components/Minus";
 import { Pulus } from "../components/Pulus";
@@ -12,12 +12,26 @@ export default function Home() {
   const [count, setCount] = useState(0);
   //                                 👆 初期値
 
-  const handleClickPulus = (e) => {
-    setCount((count) => count + 1);
-  };
-  const handleClickMinus = (e) => {
-    setCount((count) => count - 1);
-  };
+  const handleClickPulus = useCallback(
+    (e) => {
+      if (count < 9999) setCount((count) => count + 1);
+    },
+    [count]
+  );
+
+  const handleClickMinus = useCallback(
+    (e) => {
+      if (count > -9999) setCount((count) => count - 1);
+    },
+    [count]
+  );
+
+  const handleClickReset = useCallback(
+    (e) => {
+      setCount((count) => 0);
+    },
+    [count]
+  );
 
   return (
     <div
@@ -39,13 +53,20 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://user-images.githubusercontent.com/68226398/119603826-e97a2e80-be28-11eb-807e-737317ed3326.jpg"
+          content="https://user-images.githubusercontent.com/68226398/119667377-33870280-be71-11eb-96d2-a9c5d21437ca.jpg"
         />
       </Head>
+      <InfoModal />
       <h1 className="text-4xl text-white dark:text-gray-400 font-bold select-none">
         Count - App
       </h1>
-      <h1 className="h-80 w-40 text-8xl text-white dark:text-gray-400 font-bold flex justify-center items-center select-none">
+      <h1
+        onClick={handleClickReset}
+        className="h-16 w-40 bg-gradient-to-tr from-green-300 dark:from-indigo-700 to-blue-300 dark:to-purple-500 shadow-2xl flex hover:opacity-70 cursor-pointer justify-center items-center rounded-2xl mt-14 text-4xl text-white dark:text-gray-400 font-bold select-none"
+      >
+        Clear
+      </h1>
+      <h1 className="h-72 w-40 text-8xl text-white dark:text-gray-400 font-bold flex justify-center items-center select-none">
         {count}
       </h1>
       <div className="flex">
@@ -56,7 +77,6 @@ export default function Home() {
           <Pulus />
         </div>
       </div>
-      <InfoModal />
       <div className="fixed bottom-4">
         <SnsShare
           url={"https://counter-app-theta.vercel.app/"}

@@ -41,7 +41,7 @@ export function InfoModal() {
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed -top-72 right-16 overflow-y-auto"
+          className="fixed -top-44 right-16 overflow-y-auto"
           onClose={closeModal}
         >
           <div className="min-h-screen px-4 text-center">
