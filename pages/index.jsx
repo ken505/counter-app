@@ -34,10 +34,7 @@ export default function Home() {
   );
 
   return (
-    <div
-      className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800
-    "
-    >
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800">
       <Head>
         <title>Counter App</title>
         <link rel="icon" href="/favicon.ico" />
