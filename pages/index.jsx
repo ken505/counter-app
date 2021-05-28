@@ -1,9 +1,11 @@
 import Head from "next/head";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { InfoModal } from "../components/InfoModal";
+import { InputArea } from "../components/InputArea";
 import { Minus } from "../components/Minus";
 import { Pulus } from "../components/Pulus";
 import { SnsShare } from "../components/SnsShare";
+import { db } from "../utils/firebase";
 
 export default function Home() {
   //     👇 配列の分割代入
@@ -33,6 +35,36 @@ export default function Home() {
     [count]
   );
 
+  // firebase のデータ
+  const [tasks, setTasks] = useState([{ id: "", title: "", count: "" }]);
+
+  // 👇 app 読み込みは起動時の1回だけにしたいので第2引数は []
+  useEffect(() => {
+    //    👇 返り値を受け取る変数
+    //               👇 firebase の collection データへアクセス
+    //                                    👇 onSnapshot データベースの内容を取得
+    //                                       データベース側に変化があった時に内容を取得
+    //                                              👇 firestore から取得したデータを
+    // snapshoto 引数に入れる。
+    //  👇 firebase データベースの変化を監視
+    const unSub = db.collection("tasks").onSnapshot((snapshot) => {
+      // 👇 取得した task オブジェクトの一覧を setTasks を使って tasks の state へ格納
+      setTasks(
+        // 👇 snapshot の中にドキュメントがあるので
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          title: doc.data().title,
+          count: doc.data().count,
+        }))
+      );
+    });
+    //  クリーンナップ関数
+    return () => unSub();
+  }, []);
+
+  // ユーザーが入力した文字列を保持する state 、初期値は空の文字列。
+  const [input, setInput] = useState("");
+
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800">
       <Head>
@@ -54,6 +86,27 @@ export default function Home() {
         />
       </Head>
       <InfoModal />
+
+      <div>
+        <h1>Todo App by Next/Firebase</h1>
+        <InputArea />
+        <input
+        // 👇 素の input だと label は無い。とりあえず今はスルー。
+        // useState に初期値設定は可能だが、 label と違ってユーザーが消去する必要が出てくる。
+          label="New task ?"
+          value={input}
+          // typescript にする場合は e に型をつけましょう！
+          onChange={(e) => setInput(e.target.value)}
+        />
+
+        {tasks.map((task) => (
+          <h3 key={task.id}>
+            {task.title}
+            {task.count}
+          </h3>
+        ))}
+      </div>
+
       <h1 className="text-4xl text-white dark:text-gray-400 font-bold select-none">
         Count - App
       </h1>
