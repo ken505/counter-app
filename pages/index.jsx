@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
 import { InfoModal } from "../components/InfoModal";
-import { InputArea } from "../components/InputArea";
 import { Minus } from "../components/Minus";
 import { Pulus } from "../components/Pulus";
 import { SnsShare } from "../components/SnsShare";
+import { TaskItem } from "../components/TaskItem";
 import { db } from "../utils/firebase";
 
 export default function Home() {
@@ -62,6 +62,15 @@ export default function Home() {
     return () => unSub();
   }, []);
 
+  // 👇 ts の場合はを型指定してね。
+  const newTask = (e) => {
+    // 👇 firebase の 追加したい collection 指定。
+    // ........................👇 追加したいオブジェクトを指定。 id は自動で取得してくれるらしく、記入する必要はないそうだ。なんでかはよくわからん。
+    db.collection("tasks").add({ title: input });
+    // 👇 input state の初期化
+    setInput("");
+  };
+
   // ユーザーが入力した文字列を保持する state 、初期値は空の文字列。
   const [input, setInput] = useState("");
 
@@ -89,16 +98,18 @@ export default function Home() {
 
       <div>
         <h1>Todo App by Next/Firebase</h1>
-        <InputArea />
         <input
-        // 👇 素の input だと label は無い。とりあえず今はスルー。
-        // useState に初期値設定は可能だが、 label と違ってユーザーが消去する必要が出てくる。
+          // 👇 素の input だと label は無い。とりあえず今はスルー。
+          // useState に初期値設定は可能だが、 label と違ってユーザーが消去する必要が出てくる。
           label="New task ?"
           value={input}
           // typescript にする場合は e に型をつけましょう！
           onChange={(e) => setInput(e.target.value)}
         />
-
+        {/* 👇 空配列で入力ボタンを押せないようにする。 */}
+        <button disabled={!input} onClick={newTask}>
+          Add
+        </button>
         {tasks.map((task) => (
           <h3 key={task.id}>
             {task.title}
@@ -110,6 +121,7 @@ export default function Home() {
       <h1 className="text-4xl text-white dark:text-gray-400 font-bold select-none">
         Count - App
       </h1>
+      {/* <TaskItem /> */}
       <h1
         onClick={handleClickReset}
         className="h-16 w-40 bg-gradient-to-tr from-green-300 dark:from-indigo-700 to-blue-300 dark:to-purple-500 shadow-2xl flex hover:opacity-70 cursor-pointer justify-center items-center rounded-2xl mt-14 text-4xl text-white dark:text-gray-400 font-bold select-none"
