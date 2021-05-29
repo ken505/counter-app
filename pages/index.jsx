@@ -1,11 +1,13 @@
 import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
+import { db } from "../utils/firebase";
+import { FormControl, List, TextField } from "@material-ui/core";
+import { AddToPhotosRounded } from "@material-ui/icons";
 import { InfoModal } from "../components/InfoModal";
 import { Minus } from "../components/Minus";
 import { Pulus } from "../components/Pulus";
 import { SnsShare } from "../components/SnsShare";
 import { TaskItem } from "../components/TaskItem";
-import { db } from "../utils/firebase";
 
 export default function Home() {
   //     👇 配列の分割代入
@@ -36,7 +38,7 @@ export default function Home() {
   );
 
   // firebase のデータ
-  const [tasks, setTasks] = useState([{ id: "", title: "", count: "" }]);
+  const [tasks, setTasks] = useState([{ id: "", title: "" }]);
 
   // 👇 app 読み込みは起動時の1回だけにしたいので第2引数は []
   useEffect(() => {
@@ -54,7 +56,6 @@ export default function Home() {
         snapshot.docs.map((doc) => ({
           id: doc.id,
           title: doc.data().title,
-          count: doc.data().count,
         }))
       );
     });
@@ -97,31 +98,30 @@ export default function Home() {
       <InfoModal />
 
       <div>
-        <h1>Todo App by Next/Firebase</h1>
-        <input
-          // 👇 素の input だと label は無い。とりあえず今はスルー。
-          // useState に初期値設定は可能だが、 label と違ってユーザーが消去する必要が出てくる。
-          label="New task ?"
-          value={input}
-          // typescript にする場合は e に型をつけましょう！
-          onChange={(e) => setInput(e.target.value)}
-        />
-        {/* 👇 空配列で入力ボタンを押せないようにする。 */}
+        <FormControl>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            label="Newtask?"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          ></TextField>
+        </FormControl>
         <button disabled={!input} onClick={newTask}>
-          Add
+          <AddToPhotosRounded className="text-white dark:text-gray-400 mx-2" />
         </button>
-        {tasks.map((task) => (
-          <h3 key={task.id}>
-            {task.title}
-            {task.count}
-          </h3>
-        ))}
+
+        {/* 👇 material ui List components については未調査 */}
+        <List>
+          {tasks.map((task) => (
+            <TaskItem key={task.id} id={task.id} title={task.title} />
+          ))}
+        </List>
       </div>
 
       <h1 className="text-4xl text-white dark:text-gray-400 font-bold select-none">
         Count - App
       </h1>
-      {/* <TaskItem /> */}
       <h1
         onClick={handleClickReset}
         className="h-16 w-40 bg-gradient-to-tr from-green-300 dark:from-indigo-700 to-blue-300 dark:to-purple-500 shadow-2xl flex hover:opacity-70 cursor-pointer justify-center items-center rounded-2xl mt-14 text-4xl text-white dark:text-gray-400 font-bold select-none"
