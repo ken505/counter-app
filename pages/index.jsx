@@ -8,6 +8,7 @@ import { Minus } from "../components/Minus";
 import { Pulus } from "../components/Pulus";
 import { SnsShare } from "../components/SnsShare";
 import { TaskItem } from "../components/TaskItem";
+import { LocalHead } from "../components/LacalHead";
 
 export default function Home() {
   //     👇 配列の分割代入
@@ -38,7 +39,7 @@ export default function Home() {
   );
 
   // firebase のデータ
-  const [tasks, setTasks] = useState([{ id: "", title: "" }]);
+  const [tasks, setTasks] = useState([{ id: "", title: "" , count: ""}]);
 
   // 👇 app 読み込みは起動時の1回だけにしたいので第2引数は []
   useEffect(() => {
@@ -56,6 +57,7 @@ export default function Home() {
         snapshot.docs.map((doc) => ({
           id: doc.id,
           title: doc.data().title,
+          count: doc.data().count
         }))
       );
     });
@@ -77,24 +79,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800">
-      <Head>
-        <title>Counter App</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          property="og:url"
-          content="https://counter-app-theta.vercel.app/"
-        />
-        <meta property="og:title" content="Count - App" />
-        <meta
-          property="og:description"
-          content="This counter is beautiful and easy to use. ✨"
-        />
-        <meta
-          property="og:image"
-          content="https://user-images.githubusercontent.com/68226398/119667377-33870280-be71-11eb-96d2-a9c5d21437ca.jpg"
-        />
-      </Head>
+      <LocalHead />
       <InfoModal />
 
       <div>
@@ -112,6 +97,7 @@ export default function Home() {
         </button>
 
         {/* 👇 material ui List components については未調査 */}
+        {/* 枠線やテキストが黒なので、変更できるか調査必要 */}
         <List>
           {tasks.map((task) => (
             <TaskItem key={task.id} id={task.id} title={task.title} />
@@ -148,6 +134,3 @@ export default function Home() {
     </div>
   );
 }
-
-// text-center align-middle
-// <p className="h-55 w-40 text-gray-700 flex justify-center items-center"></p>
