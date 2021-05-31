@@ -1,45 +1,15 @@
-import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
-import { db } from "../utils/firebase";
 import { FormControl, List, TextField } from "@material-ui/core";
 import { AddToPhotosRounded } from "@material-ui/icons";
+import { db } from "../utils/firebase";
 import { InfoModal } from "../components/InfoModal";
-import { Minus } from "../components/Minus";
-import { Pulus } from "../components/Pulus";
 import { SnsShare } from "../components/SnsShare";
 import { TaskItem } from "../components/TaskItem";
 import { LocalHead } from "../components/LacalHead";
 
 export default function Home() {
-  //     👇 配列の分割代入
-  // const count = array[0]
-  // const setCount = array[1] と同義
-  const [count, setCount] = useState(0);
-  //                                 👆 初期値
-
-  const handleClickPulus = useCallback(
-    (e) => {
-      if (count < 9999) setCount((count) => count + 1);
-    },
-    [count]
-  );
-
-  const handleClickMinus = useCallback(
-    (e) => {
-      if (count > -9999) setCount((count) => count - 1);
-    },
-    [count]
-  );
-
-  const handleClickReset = useCallback(
-    (e) => {
-      setCount((count) => 0);
-    },
-    [count]
-  );
-
   // firebase のデータ
-  const [tasks, setTasks] = useState([{ id: "", title: "" , count: ""}]);
+  const [tasks, setTasks] = useState([{ id: "", title: "", count: "" }]);
 
   // 👇 app 読み込みは起動時の1回だけにしたいので第2引数は []
   useEffect(() => {
@@ -57,7 +27,7 @@ export default function Home() {
         snapshot.docs.map((doc) => ({
           id: doc.id,
           title: doc.data().title,
-          count: doc.data().count
+          count: doc.data().count,
         }))
       );
     });
@@ -105,32 +75,12 @@ export default function Home() {
         </List>
       </div>
 
-      <h1 className="text-4xl text-white dark:text-gray-400 font-bold select-none">
-        Count - App
-      </h1>
-      <h1
-        onClick={handleClickReset}
-        className="h-16 w-40 bg-gradient-to-tr from-green-300 dark:from-indigo-700 to-blue-300 dark:to-purple-500 shadow-2xl flex hover:opacity-70 cursor-pointer justify-center items-center rounded-2xl mt-14 text-4xl text-white dark:text-gray-400 font-bold select-none"
-      >
-        Clear
-      </h1>
-      <h1 className="h-30 w-40 m-28 text-8xl text-white dark:text-gray-400 text-center font-bolditems-center select-none">
-        {count}
-      </h1>
-      <div className="flex">
-        <div onClick={handleClickMinus}>
-          <Minus />
-        </div>
-        <div onClick={handleClickPulus}>
-          <Pulus />
-        </div>
-      </div>
-      <div className="fixed bottom-4">
+      {/* <div className="fixed bottom-4"> */}
         <SnsShare
           url={"https://counter-app-theta.vercel.app/"}
           title={"Counter - App"}
         />
       </div>
-    </div>
+    // </div>
   );
 }

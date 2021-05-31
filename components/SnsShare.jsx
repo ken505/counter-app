@@ -10,8 +10,9 @@ import {
 export function SnsShare(props) {
   const { url, title } = props;
   return (
-    <div className="flex flex-col fixed bottom-3 left-3
-    sm:flex-row sm:static ">
+    <div className="flex flex-col fixed bottom-3 right-3 ">
+    {/*  */}
+{/* sm:flex-row sm:static  */}
       <TwitterShareButton url={url} title={title}>
         <TwitterIcon
           size={32}
@@ -19,7 +20,7 @@ export function SnsShare(props) {
           className="hover:opacity-70 dark:opacity-40 mx-1 my-1"
         />
       </TwitterShareButton>
-      <LineShareButton url={url} title={title}>
+      {/* <LineShareButton url={url} title={title}>
         <LineIcon
           size={32}
           round
@@ -32,7 +33,7 @@ export function SnsShare(props) {
           round
           className=" hover:opacity-70 dark:opacity-40  mx-1 my-1"
         />
-      </FacebookShareButton>
+      </FacebookShareButton> */}
     </div>
   );
 }
