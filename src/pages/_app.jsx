@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import "tailwindcss/tailwind.css";
 import { AuthUserProvider } from "../context/AuthUserContext";
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <AuthUserProvider>
       <Component {...pageProps} />
