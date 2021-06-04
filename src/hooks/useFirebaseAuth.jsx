@@ -1,25 +1,25 @@
-import { useState, useEffect } from 'react'
-import { auth } from '../utils/firebase';
+import { useState, useEffect } from "react";
+import { auth } from "../utils/firebase";
 
 const formatAuthUser = (user) => ({
   uid: user.uid,
-  email: user.email
+  email: user.email,
 });
 
-export default function useFirebaseAuth() {
+export const useFirebaseAuth = () => {
   const [authUser, setAuthUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const authStateChanged = async (authState) => {
     if (!authState) {
-      setAuthUser(null)
-      setLoading(false)
+      setAuthUser(null);
+      setLoading(false);
       return;
     }
 
-    setLoading(true)
+    setLoading(true);
     var formattedUser = formatAuthUser(authState);
-    setAuthUser(formattedUser);    
+    setAuthUser(formattedUser);
     setLoading(false);
   };
 
@@ -34,8 +34,7 @@ export default function useFirebaseAuth() {
   const createUserWithEmailAndPassword = (email, password) =>
     auth.createUserWithEmailAndPassword(email, password);
 
-  const signOut = () =>
-    auth.signOut().then(clear);
+  const signOut = () => auth.signOut().then(clear);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(authStateChanged);
@@ -47,6 +46,6 @@ export default function useFirebaseAuth() {
     loading,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
-    signOut
+    signOut,
   };
-}
+};
