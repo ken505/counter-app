@@ -7,7 +7,7 @@ import { SnsShare } from "../components/SnsShare";
 import { TaskItem } from "../components/TaskItem";
 import { LocalHead } from "../components/LacalHead";
 
-const Memo = () => {
+const SignUp = () => {
   // firebase のデータ
   const [tasks, setTasks] = useState([{ id: "", title: "", count: "" }]);
 
@@ -84,4 +84,4 @@ const Memo = () => {
     // </div>
   );
 };
-export default Memo;
+export default SignUp;
