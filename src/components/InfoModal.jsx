@@ -1,20 +1,20 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
-export function InfoModal() {
+export const InfoModal = () => {
   //                                 👇 これが初期値
   let [isOpen, setIsOpen] = useState(false);
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
-  function openModal() {
+  const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
   return (
-    <>
+    <div>
       <div className="fixed top-4 right-4 flex items-center justify-center">
         <button
           type="button"
@@ -101,6 +101,6 @@ export function InfoModal() {
           </div>
         </Dialog>
       </Transition>
-    </>
+    </div>
   );
-}
+};

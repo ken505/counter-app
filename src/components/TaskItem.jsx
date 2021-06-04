@@ -1,4 +1,4 @@
-import firebase from "firebase/app";
+// import firebase from "firebase/app";
 import { db } from "../utils/firebase";
 import { useState } from "react";
 import { ListItem, TextField } from "@material-ui/core";
@@ -14,11 +14,11 @@ import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined"
 
 // tsx
 // export function TaskItem:React.FC<PROPS> = (props) {
-export function TaskItem(props) {
+export const TaskItem = (props) => {
   // 👇 編集中の title を格納する state
   // ...............................👇 state の初期値は props.title
   const [title, setTitle] = useState(props.title);
-  
+
   const editTask = () => {
     db.collection("tasks").doc(props.id).set({ title: title }, { marge: true });
   };
@@ -47,4 +47,4 @@ export function TaskItem(props) {
       </button>
     </ListItem>
   );
-}
+};

@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export function LocalHead() {
+export const LocalHead = () => {
   return (
     <Head>
       <title>Memo App</title>
@@ -12,10 +12,7 @@ export function LocalHead() {
         property="og:description"
         content="This Memo is beautiful and easy to use. ✨"
       />
-      <meta
-        property="og:image"
-        content=""
-      />
+      <meta property="og:image" content="" />
     </Head>
   );
-}
+};
