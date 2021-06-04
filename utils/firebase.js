@@ -1,11 +1,20 @@
-// 👇 参照元url https://qiita.com/centerfield77/items/49b029d4d1618dfeedb6
+// 👇 参照元url (1) https://qiita.com/centerfield77/items/49b029d4d1618dfeedb6
 // @centerfield77 Next.jsでFirestoreのデータをSSGする よりコピペ
 // env ファイルにはタイポがある。
 
-import firebase from 'firebase/app';
-import '@firebase/firestore';
+// 参照元 url (2)
+// https://blog.logrocket.com/implementing-authentication-in-next-js-with-firebase/
 
-const firebaseConfig = {
+// (2) に準じて f を大文字にして F へ。
+import Firebase from 'Firebase/app';
+import '@Firebase/Firestore';
+
+// (2)
+import 'Firebase/auth';
+
+// (1)
+// const firebaseConfig = {
+const FirebaseCredentials = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE,
@@ -15,13 +24,37 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-} else {
-  firebase.app();
+// if a Firebase instance doesn't exist, create one
+if (!Firebase.apps.length) {
+  Firebase.initializeApp(FirebaseCredentials)
 }
 
-export const db = firebase.firestore();
+export const db = Firebase.Firestore();
+export default Firebase;
+
+// (1)
+// if (!firebase.apps.length) {
+//   firebase.initializeApp(firebaseConfig);
+// } else {
+//   firebase.app();
+// }
+
+// 👇 (2)
+// import Firebase from 'Firebase/app';
+// import 'Firebase/auth';
+
+// const FirebaseCredentials = {
+//   apiKey: process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY,
+//   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+//   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
+// }
+
+// // if a Firebase instance doesn't exist, create one
+// if (!Firebase.apps.length) {
+//   Firebase.initializeApp(FirebaseCredentials)
+// }
+
+// export default Firebase;
 
 
 // 👇 参照元忘れた。 next firebase 的な検索で出てきた気がするけど。
