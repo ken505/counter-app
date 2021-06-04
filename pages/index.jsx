@@ -9,6 +9,8 @@ const Home = () => {
       <LocalHead />
       <InfoModal />
     <div>Index</div>
+    <div>logged_in</div>
+    <div>sign_up</div>
       <SnsShare
         url={"https://counter-app-theta.vercel.app/"}
         title={"Counter - App"}
