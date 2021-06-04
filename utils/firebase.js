@@ -6,15 +6,15 @@
 // https://blog.logrocket.com/implementing-authentication-in-next-js-with-firebase/
 
 // (2) に準じて f を大文字にして F へ。
-import Firebase from 'Firebase/app';
-import '@Firebase/Firestore';
+import firebase from 'firebase/app';
+import '@firebase/firestore';
 
 // (2)
-import 'Firebase/auth';
+import 'firebase/auth';
 
 // (1)
 // const firebaseConfig = {
-const FirebaseCredentials = {
+const firebaseCredentials = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE,
@@ -25,12 +25,12 @@ const FirebaseCredentials = {
 };
 
 // if a Firebase instance doesn't exist, create one
-if (!Firebase.apps.length) {
-  Firebase.initializeApp(FirebaseCredentials)
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseCredentials)
 }
 
-export const db = Firebase.Firestore();
-export default Firebase;
+export const db = firebase.firestore();
+export default firebase;
 
 // (1)
 // if (!firebase.apps.length) {
