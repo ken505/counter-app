@@ -1,5 +1,5 @@
 import firebase from "firebase/app";
-import { db } from "../utils/Firebase";
+import { db } from "../utils/firebase";
 import { useState } from "react";
 import { ListItem, TextField } from "@material-ui/core";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";

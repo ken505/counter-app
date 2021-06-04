@@ -1,15 +1,27 @@
 import { useCallback, useEffect, useState } from "react";
 import { FormControl, List, TextField } from "@material-ui/core";
 import { AddToPhotosRounded } from "@material-ui/icons";
-import { db } from "../utils/Firebase";
+import { db } from "../utils/firebase";
 import { InfoModal } from "../components/InfoModal";
 import { SnsShare } from "../components/SnsShare";
 import { TaskItem } from "../components/TaskItem";
 import { LocalHead } from "../components/LacalHead";
 
+import { useRouter } from "next/router";
+import { useAuth } from "../context/AuthUserContext";
+import { Container, Row, Col, Button } from "reactstrap";
+
 const LoggedIn = () => {
   // firebase のデータ
   const [tasks, setTasks] = useState([{ id: "", title: "", count: "" }]);
+
+  const { authUser, loading, signOut } = useAuth();
+  const router = useRouter();
+
+  // Listen for changes on loading and authUser, redirect if needed
+  useEffect(() => {
+    if (!loading && !authUser) router.push("/");
+  }, [authUser, loading]);
 
   // 👇 app 読み込みは起動時の1回だけにしたいので第2引数は []
   useEffect(() => {
@@ -74,6 +86,7 @@ const LoggedIn = () => {
           ))}
         </List>
       </div>
+      <Button onClick={signOut}>Sign out</Button>
 
       {/* <div className="fixed bottom-4"> */}
       <SnsShare

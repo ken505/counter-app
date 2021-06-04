@@ -30,7 +30,10 @@ if (!firebase.apps.length) {
 }
 
 export const db = firebase.firestore();
-export default firebase;
+
+// (2)
+// export default firebase;
+export const auth = firebase.auth();
 
 // (1)
 // if (!firebase.apps.length) {
