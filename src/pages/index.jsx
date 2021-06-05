@@ -1,10 +1,6 @@
-import { InfoModal } from "../components/InfoModal";
-import { SnsShare } from "../components/SnsShare";
-import { LocalHead } from "../components/LacalHead";
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { useAuth } from "../context/AuthUserContext";
+import Link from "next/link";
 import {
   Container,
   Row,
@@ -16,6 +12,10 @@ import {
   Input,
   Alert,
 } from "reactstrap";
+import { InfoModal } from "../components/InfoModal";
+import { SnsShare } from "../components/SnsShare";
+import { LocalHead } from "../components/LacalHead";
+import { useAuth } from "../context/AuthUserContext";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -35,43 +35,41 @@ const Home = () => {
     event.preventDefault();
   };
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800">
+    <div
+      className="min-h-screen 
+    bg-gradient-to-tr from-green-400 dark:from-gray-900 
+    to-blue-400 dark:to-purple-800
+    flex flex-col justify-center items-center "
+    >
       <LocalHead />
       <InfoModal />
-      <div>Index</div>
-      <div>logged_in</div>
-      <div>sign_up</div>
       <Container className="text-center" style={{ padding: "40px 0px" }}>
-        <Row>
-          <Col>
-            <h2>Login</h2>
-          </Col>
-        </Row>
+        <h2 className="text-gray-100 font-mono text-3xl mb-8">Todo-app🐱</h2>
+        <p className="text-gray-100 font-mono text-xl mb-1">E-mail</p>
         <Row style={{ maxWidth: "400px", margin: "auto" }}>
           <Col>
-            <Form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit}>
               {error && <Alert color="danger">{error}</Alert>}
+              <input
+                className="p-3 rounded-md"
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                name="email"
+                id="loginEmail"
+                placeholder="Email"
+                size="20"
+              />
               <FormGroup row>
-                <Label for="loginEmail" sm={4}>
-                  Email
-                </Label>
-                <Col sm={8}>
-                  <Input
-                    type="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    name="email"
-                    id="loginEmail"
-                    placeholder="Email"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="loginPassword" sm={4}>
+                <p className="text-gray-100 font-mono text-xl mt-5 mb-1">
                   Password
-                </Label>
+                </p>
+                {/* <Label for="loginPassword" sm={4}>
+                  Password
+                </Label> */}
                 <Col sm={8}>
-                  <Input
+                  <input
+                    className="p-3 rounded-md"
                     type="password"
                     name="password"
                     value={password}
@@ -82,19 +80,31 @@ const Home = () => {
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Col>
-                  <Button>Login</Button>
-                </Col>
+                <Button className="text-gray-100 font-mono text-3xl font-bold mt-7 mb-5">
+                  Login
+                </Button>
               </FormGroup>
-              <FormGroup row>
-                <Col>
-                  No account? <Link href="/sign_up">Create one</Link>
-                </Col>
+              <FormGroup className="text-gray-100 font-mono text-xl mt-5 mb-5">
+                No account?
+                <Link href="/sign_up">
+                  <p className="text-gray-100 font-mono text-xl font-extrabold mt-1 mx-8">
+                    Create one
+                  </p>
+                </Link>
               </FormGroup>
-            </Form>
+            </form>
           </Col>
         </Row>
       </Container>
+      <p className="text-gray-100 font-mono text-md mb-3">Trial Account</p>
+      <div className="text-gray-100 font-mono text-md">
+        <span>Email</span>
+        <span className="font-bold mx-3">test@tmail.com</span>
+      </div>
+      <div className="text-gray-100 font-mono text-md ">
+        <span>Password</span>
+        <span className="font-bold mx-3">123456</span>
+      </div>
       <SnsShare
         url={"https://counter-app-theta.vercel.app/"}
         title={"Counter - App"}
