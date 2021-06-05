@@ -43,11 +43,12 @@ const Home = () => {
     >
       <LocalHead />
       <InfoModal />
+      
       <div className="text-center" style={{ padding: "40px 0px" }}>
         <h2 className="text-gray-100 font-mono text-3xl mb-8">Todo-app🐱</h2>
         <p className="text-gray-100 font-mono text-xl mb-1">E-mail</p>
         <form onSubmit={onSubmit}>
-          {error && <Alert color="danger">{error}</Alert>}
+         
           <input
             className="p-3 rounded-md"
             type="email"
@@ -70,10 +71,11 @@ const Home = () => {
               placeholder="Password"
             />
           </div>
-          <div>
             <button className="text-gray-100 font-mono text-3xl font-bold mt-7 mb-5">
               Login
             </button>
+          <div className="border-solid border-red-500">
+          {error && <div className="text-red-500 border-solid">{error}</div>}
           </div>
           <div className="text-gray-100 font-mono text-xl mt-5 mb-5">
             No account?
