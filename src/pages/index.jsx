@@ -45,8 +45,12 @@ const Home = () => {
       <InfoModal />
 
       <div className="text-center" style={{ padding: "40px 0px" }}>
-        <h2 className="text-gray-100 dark:text-gray-400 font-mono text-3xl mb-8">Todo-app🐱</h2>
-        <p className="text-gray-100 dark:text-gray-400 font-mono text-xl mb-1">E-mail</p>
+        <h2 className="text-gray-100 dark:text-gray-400 font-mono text-3xl mb-8">
+          Todo-app🐱
+        </h2>
+        <p className="text-gray-100 dark:text-gray-400 font-mono text-xl mb-1">
+          E-mail
+        </p>
         <form onSubmit={onSubmit}>
           <input
             className="p-3 rounded-md dark:bg-gray-700"
@@ -58,7 +62,9 @@ const Home = () => {
             placeholder="Email"
             size="20"
           />
-          <p className="text-gray-100 dark:text-gray-400 font-mono text-xl mt-5 mb-1">Password</p>
+          <p className="text-gray-100 dark:text-gray-400 font-mono text-xl mt-5 mb-1">
+            Password
+          </p>
           <div>
             <input
               className="p-3 rounded-md dark:bg-gray-700"
@@ -85,7 +91,7 @@ const Home = () => {
             <Link href="/sign_up">
               <p
                 className="text-gray-100 dark:text-gray-400 font-mono text-xl font-extrabold mt-2 mx-8 cursor-pointer bg-gradient-to-tr from-green-500 dark:from-gray-700 
-    to-blue-500 dark:to-purple-600 bg-cover rounded-md px-4 py-2 hover:opacity-70 dark:hover:opacity-50"
+    to-blue-500 dark:to-purple-600 bg-cover rounded-md px-4 py-2 hover:opacity-70 dark:hover:opacity-50 "
               >
                 Create one
               </p>
@@ -93,7 +99,9 @@ const Home = () => {
           </div>
         </form>
       </div>
-      <p className="text-gray-100 dark:text-gray-400 font-mono text-md mb-3">Trial Account</p>
+      <p className="text-gray-100 dark:text-gray-400 font-mono text-md mb-3">
+        Trial Account
+      </p>
       <div className="text-gray-100 dark:text-gray-400 font-mono text-md">
         <span>Email</span>
         <span className="font-bold mx-3">test@tmail.com</span>
@@ -102,6 +110,8 @@ const Home = () => {
         <span>Password</span>
         <span className="font-bold mx-3">123456</span>
       </div>
+<div className="border-black">a</div>
+
       <SnsShare />
     </div>
   );
