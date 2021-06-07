@@ -5,13 +5,11 @@
 // import { Link } from "react-router-dom";
 
 // const SignUp = () => {
-  // return (
-    // <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800">
-      
+// return (
+// <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800">
 
-
-
-      {/* <LocalHead />
+{
+  /* <LocalHead />
       <InfoModal />
       <div>Login</div>
       <Link href="/">
@@ -20,30 +18,33 @@
       <SnsShare
         url={"https://counter-app-theta.vercel.app/"}
         title={"Counter - App"}
-      /> */}
+      /> */
+}
 
-{/* 
+{
+  /* 
     </div>
   );
 };
-export default SignUp; */}
+export default SignUp; */
+}
 
 import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { useAuth } from "../context/AuthUserContext";
 
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Alert,
-} from "reactstrap";
+// import {
+//   Container,
+//   Row,
+//   Col,
+//   Button,
+//   Form,
+//   FormGroup,
+//   Label,
+//   Input,
+//   Alert,
+// } from "reactstrap";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -71,69 +72,55 @@ const SignUp = () => {
     else setError("Password do not match");
     event.preventDefault();
   };
-
+  //  custom-container
   return (
-    <Container className="text-center custom-container">
-      <Row>
-        <Col>
-          <Form className="custom-form" onSubmit={onSubmit}>
-            {error && <Alert color="danger">{error}</Alert>}
-            <FormGroup row>
-              <Label for="signUpEmail" sm={4}>
-                Email
-              </Label>
-              <Col sm={8}>
-                <Input
-                  type="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  name="email"
-                  id="signUpEmail"
-                  placeholder="Email"
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup row>
-              <Label for="signUpPassword" sm={4}>
-                Password
-              </Label>
-              <Col sm={8}>
-                <Input
-                  type="password"
-                  name="passwordOne"
-                  value={passwordOne}
-                  onChange={(event) => setPasswordOne(event.target.value)}
-                  id="signUpPassword"
-                  placeholder="Password"
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup row>
-              <Label for="signUpPassword2" sm={4}>
-                Confirm Password
-              </Label>
-              <Col sm={8}>
-                <Input
-                  type="password"
-                  name="password"
-                  value={passwordTwo}
-                  onChange={(event) => setPasswordTwo(event.target.value)}
-                  id="signUpPassword2"
-                  placeholder="Password"
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup row>
-              <Col>
-                <Button>Sign Up</Button>
-              </Col>
-            </FormGroup>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+    <div className="min-h-screen bg-pink-400 grid grid-cols-1 items-center text-center">
+      <form onSubmit={onSubmit}>
+        {error && <alert color="danger">{error}</alert>}
+        <label for="signUpEmail">Email</label>
+        <div>
+          <input
+            className="w-64"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            name="email"
+            id="signUpEmail"
+            placeholder="Email"
+          />
+        </div>
+        <label for="signUpPassword" sm={4}>
+          Password
+        </label>
+        <div>
+          <input
+            className="w-64"
+            type="password"
+            name="passwordOne"
+            value={passwordOne}
+            onChange={(event) => setPasswordOne(event.target.value)}
+            id="signUpPassword"
+            placeholder="Password"
+          />
+        </div>
+        <label for="signUpPassword2" sm={4}>
+          Confirm Password
+        </label>
+        <div>
+          <input
+            className="w-64"
+            type="password"
+            name="password"
+            value={passwordTwo}
+            onChange={(event) => setPasswordTwo(event.target.value)}
+            id="signUpPassword2"
+            placeholder="Password"
+          />
+        </div>
+        <button>Sign Up</button>
+      </form>
+    </div>
   );
 };
 
 export default SignUp;
-

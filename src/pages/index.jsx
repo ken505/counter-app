@@ -110,8 +110,6 @@ const Home = () => {
         <span>Password</span>
         <span className="font-bold mx-3">123456</span>
       </div>
-<div className="border-black">a</div>
-
       <SnsShare />
     </div>
   );
