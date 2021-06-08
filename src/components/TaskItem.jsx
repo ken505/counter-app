@@ -26,11 +26,11 @@ export const TaskItem = (props) => {
     db.collection("tasks").doc(props.id).delete();
   };
   return (
-    <ListItem className="text-white dark:text-gray-400 ">
-      <h2>{props.title}</h2>
+    <div className="flex text-white dark:text-gray-400 ">
+      {/* <h2>{props.title}</h2> */}
       <div className=" mx-10">
         <TextField
-          label="Edit task"
+          // label="Edit task"
           value={title}
           InputLabelProps={{
             shrink: true,
@@ -45,6 +45,6 @@ export const TaskItem = (props) => {
       <button onClick={deleteTask}>
         <DeleteForeverOutlinedIcon className="text-white dark:text-gray-400 mx-1" />
       </button>
-    </ListItem>
+    </div>
   );
 };
