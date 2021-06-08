@@ -36,38 +36,33 @@ const Home = () => {
   };
   return (
     <div
-      className="min-h-screen 
+      className="font-mono text-gray-100
     bg-gradient-to-tr from-green-400 dark:from-gray-900 
     to-blue-400 dark:to-purple-800
-    flex flex-col justify-center items-center "
+    "
     >
       <LocalHead />
       <InfoModal />
 
-      <div className="text-center" style={{ padding: "40px 0px" }}>
-        <h2 className="text-gray-100 dark:text-gray-400 font-mono text-3xl mb-8">
-          Todo-app🐱
-        </h2>
-        <p className="text-gray-100 dark:text-gray-400 font-mono text-xl mb-1">
-          E-mail
-        </p>
+      <div className="min-h-screen grid grid-cols-1 items-center text-center ">
         <form onSubmit={onSubmit}>
-          <input
-            className="p-3 rounded-md dark:bg-gray-700"
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            name="email"
-            id="loginEmail"
-            placeholder="Email"
-            size="20"
-          />
-          <p className="text-gray-100 dark:text-gray-400 font-mono text-xl mt-5 mb-1">
-            Password
-          </p>
+          <h2 className="text-3xl font-bold mb-6">Todo-app</h2>
+          <p className="text-xl mb-1">E-mail</p>
           <div>
             <input
-              className="p-3 rounded-md dark:bg-gray-700"
+              className="w-64 p-3 rounded-md dark:bg-gray-700"
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              name="email"
+              id="loginEmail"
+              placeholder="Email"
+            />
+          </div>
+          <p className="text-xl mt-5 mb-1">Password</p>
+          <div className="mb-10">
+            <input
+              className="w-64 p-3 rounded-md dark:bg-gray-700"
               type="password"
               name="password"
               value={password}
@@ -76,39 +71,34 @@ const Home = () => {
               placeholder="Password"
             />
           </div>
+          <p>{error && <alert className="text-red-500">{error}</alert>}</p>
           <button
-            className="text-gray-100 dark:text-gray-400 font-mono text-3xl font-bold mt-5 mb-5
+            className="w-60 rounded-full border border-white dark:border-gray-300text-3xl px-5 py-3 mb-10
           bg-gradient-to-tr from-green-500 dark:from-gray-700 
-    to-blue-500 dark:to-purple-600 bg-cover rounded-md px-4 py-2 hover:opacity-70 dark:hover:opacity-50"
+    to-blue-500 dark:to-purple-600 bg-cover  hover:opacity-70 dark:hover:opacity-50"
           >
             Login
           </button>
-          <div className="border-solid border-red-500">
-            {error && <div className="text-red-500 border-solid">{error}</div>}
+          <p className="text-mb mb-1">No account?</p>
+          <Link href="/sign_up">
+            <button
+              className="text-xs px-5 py-2 mb-8 rounded-full border border-white dark:border-gray-300 cursor-pointer bg-gradient-to-tr from-green-500 dark:from-gray-700 
+    to-blue-500 dark:to-purple-600 bg-cover hover:opacity-70 dark:hover:opacity-50 "
+            >
+              Create one
+            </button>
+          </Link>
+
+          <p className="text-sm mb-1">Trial Account</p>
+          <div className="text-md">
+            <span className="text-sm">Email</span>
+            <span className="font-bold mx-3">test@tmail.com</span>
           </div>
-          <div className="text-gray-100 dark:text-gray-400 font-mono text-xl mt-5 mb-5">
-            No account?
-            <Link href="/sign_up">
-              <p
-                className="text-gray-100 dark:text-gray-400 font-mono text-xl font-extrabold mt-2 mx-8 cursor-pointer bg-gradient-to-tr from-green-500 dark:from-gray-700 
-    to-blue-500 dark:to-purple-600 bg-cover rounded-md px-4 py-2 hover:opacity-70 dark:hover:opacity-50 "
-              >
-                Create one
-              </p>
-            </Link>
+          <div className="text-md ">
+            <span className="text-sm">Password</span>
+            <span className="font-bold mx-3">123456</span>
           </div>
         </form>
-      </div>
-      <p className="text-gray-100 dark:text-gray-400 font-mono text-md mb-3">
-        Trial Account
-      </p>
-      <div className="text-gray-100 dark:text-gray-400 font-mono text-md">
-        <span>Email</span>
-        <span className="font-bold mx-3">test@tmail.com</span>
-      </div>
-      <div className="text-gray-100 dark:text-gray-400 font-mono text-md ">
-        <span>Password</span>
-        <span className="font-bold mx-3">123456</span>
       </div>
       <SnsShare />
     </div>

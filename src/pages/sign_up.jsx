@@ -113,7 +113,7 @@ const SignUp = () => {
         <label for="signUpPassword2" className="text-xl">
           Confirm Password
         </label>
-        <div className="mb-5">
+        <div className="mb-10">
           <input
             className="w-64 p-3 mt-1 rounded-md dark:bg-gray-700 dark:text-gray-300"
             type="password"
@@ -127,7 +127,7 @@ const SignUp = () => {
         <p>{error && <alert className="text-red-500">{error}</alert>}</p>
         <div>
           <button
-            className="dark:text-gray-300 px-5 py-3 mt-5 w-60 rounded-full border border-white dark:border-gray-300
+            className=" px-5 py-3 w-60 mb-12 rounded-full border border-white dark:border-gray-300 dark:text-gray-300
         bg-gradient-to-tr from-yellow-200 dark:from-pink-800 
       to-pink-400 dark:to-purple-900 hover:opacity-70 dark:hover:opacity-40
         "
@@ -138,7 +138,7 @@ const SignUp = () => {
         <div>
           <Link href="/">
             <button
-              className="dark:text-gray-300 text-xs px-5 py-2 mt-12 rounded-full border border-white dark:border-gray-300
+              className="dark:text-gray-300 text-xs px-5 py-2 rounded-full border border-white dark:border-gray-300
         bg-gradient-to-tr from-yellow-200 dark:from-pink-800 
       to-pink-400 dark:to-purple-900 hover:opacity-70 dark:hover:opacity-40
         "
