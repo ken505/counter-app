@@ -76,19 +76,18 @@ const SignUp = () => {
   //  custom-container
   return (
     <div
-      className="min-h-screen grid grid-cols-1 items-center text-center text-gray-500
+      className="min-h-screen grid grid-cols-1 items-center text-center text-gray-500 dark:text-gray-400
       font-mono bg-gradient-to-tr from-yellow-200 dark:from-pink-800 
     to-pink-400 dark:to-purple-900"
     >
       <form onSubmit={onSubmit}>
         <p className="text-3xl font-bold mb-7">Create an account</p>
-        {error && <alert color="danger">{error}</alert>}
         <label for="signUpEmail" className="text-xl">
           Email
         </label>
         <div className="mb-5">
           <input
-            className="w-64 p-3 mt-1 rounded-md"
+            className="w-64 p-3 mt-1 rounded-md dark:bg-gray-700 dark:text-gray-300"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -102,7 +101,7 @@ const SignUp = () => {
         </label>
         <div className="mb-5">
           <input
-            className="w-64 p-3 mt-1 rounded-md"
+            className="w-64 p-3 mt-1 rounded-md dark:bg-gray-700 dark:text-gray-300"
             type="password"
             name="passwordOne"
             value={passwordOne}
@@ -116,7 +115,7 @@ const SignUp = () => {
         </label>
         <div className="mb-5">
           <input
-            className="w-64 p-3 mt-1 rounded-md"
+            className="w-64 p-3 mt-1 rounded-md dark:bg-gray-700 dark:text-gray-300"
             type="password"
             name="password"
             value={passwordTwo}
@@ -125,11 +124,12 @@ const SignUp = () => {
             placeholder="Password"
           />
         </div>
+        <p>{error && <alert className="text-red-500">{error}</alert>}</p>
         <div>
           <button
-            className="px-5 py-3 mt-5 w-60 rounded-full border border-white 
+            className="dark:text-gray-300 px-5 py-3 mt-5 w-60 rounded-full border border-white dark:border-gray-300
         bg-gradient-to-tr from-yellow-200 dark:from-pink-800 
-      to-pink-400 dark:to-purple-900 hover:opacity-70
+      to-pink-400 dark:to-purple-900 hover:opacity-70 dark:hover:opacity-40
         "
           >
             Sign Up
@@ -138,9 +138,9 @@ const SignUp = () => {
         <div>
           <Link href="/">
             <button
-              className="text-xs px-5 py-2 mt-12 rounded-full border border-white 
+              className="dark:text-gray-300 text-xs px-5 py-2 mt-12 rounded-full border border-white dark:border-gray-300
         bg-gradient-to-tr from-yellow-200 dark:from-pink-800 
-      to-pink-400 dark:to-purple-900 hover:opacity-70
+      to-pink-400 dark:to-purple-900 hover:opacity-70 dark:hover:opacity-40
         "
             >
               I'm quitting
