@@ -33,6 +33,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { useAuth } from "../context/AuthUserContext";
+import Link from "next/link";
 
 // import {
 //   Container,
@@ -74,13 +75,20 @@ const SignUp = () => {
   };
   //  custom-container
   return (
-    <div className="min-h-screen bg-pink-400 grid grid-cols-1 items-center text-center">
+    <div
+      className="min-h-screen grid grid-cols-1 items-center text-center text-gray-500
+      font-mono bg-gradient-to-tr from-yellow-200 dark:from-pink-800 
+    to-pink-400 dark:to-purple-900"
+    >
       <form onSubmit={onSubmit}>
+        <p className="text-3xl font-bold mb-7">Create an account</p>
         {error && <alert color="danger">{error}</alert>}
-        <label for="signUpEmail">Email</label>
-        <div>
+        <label for="signUpEmail" className="text-xl">
+          Email
+        </label>
+        <div className="mb-5">
           <input
-            className="w-64"
+            className="w-64 p-3 mt-1 rounded-md"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -89,12 +97,12 @@ const SignUp = () => {
             placeholder="Email"
           />
         </div>
-        <label for="signUpPassword" sm={4}>
+        <label for="signUpPassword" className="text-xl">
           Password
         </label>
-        <div>
+        <div className="mb-5">
           <input
-            className="w-64"
+            className="w-64 p-3 mt-1 rounded-md"
             type="password"
             name="passwordOne"
             value={passwordOne}
@@ -103,12 +111,12 @@ const SignUp = () => {
             placeholder="Password"
           />
         </div>
-        <label for="signUpPassword2" sm={4}>
+        <label for="signUpPassword2" className="text-xl">
           Confirm Password
         </label>
-        <div>
+        <div className="mb-5">
           <input
-            className="w-64"
+            className="w-64 p-3 mt-1 rounded-md"
             type="password"
             name="password"
             value={passwordTwo}
@@ -117,7 +125,28 @@ const SignUp = () => {
             placeholder="Password"
           />
         </div>
-        <button>Sign Up</button>
+        <div>
+          <button
+            className="px-5 py-3 mt-5 w-60 rounded-full border border-white 
+        bg-gradient-to-tr from-yellow-200 dark:from-pink-800 
+      to-pink-400 dark:to-purple-900 hover:opacity-70
+        "
+          >
+            Sign Up
+          </button>
+        </div>
+        <div>
+          <Link href="/">
+            <button
+              className="text-xs px-5 py-2 mt-12 rounded-full border border-white 
+        bg-gradient-to-tr from-yellow-200 dark:from-pink-800 
+      to-pink-400 dark:to-purple-900 hover:opacity-70
+        "
+            >
+              I'm quitting
+            </button>
+          </Link>
+        </div>
       </form>
     </div>
   );
