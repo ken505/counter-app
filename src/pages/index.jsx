@@ -50,7 +50,7 @@ const Home = () => {
           <p className="text-xl mb-1">E-mail</p>
           <div>
             <input
-              className="w-64 p-3 rounded-md dark:bg-gray-700"
+              className="w-64 p-3 rounded-md text-gray-500 dark:text-gray-300 dark:bg-gray-700"
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
@@ -62,7 +62,7 @@ const Home = () => {
           <p className="text-xl mt-5 mb-1">Password</p>
           <div className="mb-10">
             <input
-              className="w-64 p-3 rounded-md dark:bg-gray-700"
+              className="w-64 p-3 rounded-md text-gray-500 dark:text-gray-300 dark:bg-gray-700"
               type="password"
               name="password"
               value={password}
