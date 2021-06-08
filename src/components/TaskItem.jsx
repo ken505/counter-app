@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ListItem, TextField } from "@material-ui/core";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
+import SaveAltRoundedIcon from '@material-ui/icons/SaveAltRounded';
 
 // tsx
 // interface PROPS {
@@ -40,7 +41,7 @@ export const TaskItem = (props) => {
         />
       </div>
       <button onClick={editTask}>
-        <EditOutlinedIcon className="text-white dark:text-gray-400 mx-1" />
+        <SaveAltRoundedIcon className="text-white dark:text-gray-400 mx-1" />
       </button>
       <button onClick={deleteTask}>
         <DeleteForeverOutlinedIcon className="text-white dark:text-gray-400 mx-1" />

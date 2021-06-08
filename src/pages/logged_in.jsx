@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { AddToPhotosRounded } from "@material-ui/icons";
+import { AddToPhotosRounded} from "@material-ui/icons";
+import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import { db } from "../utils/firebase";
 import { TaskItem } from "../components/TaskItem";
 import { LocalHead } from "../components/LacalHead";
@@ -71,7 +72,8 @@ const LoggedIn = () => {
           className="mr-auto hover:opacity-60 dark:hover:opacity-50"
           onClick={signOut}
         >
-          <svg
+        <ExitToAppRoundedIcon />
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
             fill="none"
@@ -84,7 +86,7 @@ const LoggedIn = () => {
               strokeWidth={2}
               d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
             />
-          </svg>
+          </svg> */}
         </button>
         <input
           className="w-48 p-3 rounded-md text-gray-500 dark:text-gray-300 dark:bg-gray-700"
