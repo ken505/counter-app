@@ -36,7 +36,7 @@ const Home = () => {
   };
   return (
     <div
-      className="font-mono text-gray-100
+      className="font-mono text-gray-100 dark:text-gray-400
     bg-gradient-to-tr from-green-400 dark:from-gray-900 
     to-blue-400 dark:to-purple-800
     "
@@ -73,17 +73,17 @@ const Home = () => {
           </div>
           <p>{error && <alert className="text-red-500">{error}</alert>}</p>
           <button
-            className="w-60 rounded-full border border-white dark:border-gray-300text-3xl px-5 py-3 mb-10
-          bg-gradient-to-tr from-green-500 dark:from-gray-700 
-    to-blue-500 dark:to-purple-600 bg-cover  hover:opacity-70 dark:hover:opacity-50"
+            className="w-60 rounded-full border border-white dark:border-gray-400 text-xl px-5 py-3 mb-10
+            bg-gradient-to-tr from-green-400 dark:from-gray-900 
+    to-blue-400 dark:to-purple-800 bg-cover  hover:opacity-60 dark:hover:opacity-50"
           >
             Login
           </button>
           <p className="text-mb mb-1">No account?</p>
           <Link href="/sign_up">
             <button
-              className="text-xs px-5 py-2 mb-8 rounded-full border border-white dark:border-gray-300 cursor-pointer bg-gradient-to-tr from-green-500 dark:from-gray-700 
-    to-blue-500 dark:to-purple-600 bg-cover hover:opacity-70 dark:hover:opacity-50 "
+              className="text-xs px-5 py-2 mb-8 rounded-full border border-white dark:border-gray-400 cursor-pointer bg-gradient-to-tr from-green-400 dark:from-gray-900 
+    to-blue-400 dark:to-purple-800 bg-cover hover:opacity-60 dark:hover:opacity-50 "
             >
               Create one
             </button>
