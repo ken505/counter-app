@@ -29,7 +29,7 @@ export const TaskItem = (props) => {
       {/* <h2>{props.title}</h2> */}
       <div >
         <input
-        className=" w-44 p-3  bg-transparent border-b-2 dark:border-gray-400"
+        className=" w-44 sm:w-96 p-3 bg-transparent border-b-2 dark:border-gray-400"
           value={title}
           // .......👇 tsx は型を指定。e:React.ChangeEvent<HTMLInputElement>
           onChange={(e) => setTitle(e.target.value)}

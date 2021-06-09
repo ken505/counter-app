@@ -75,7 +75,7 @@ const LoggedIn = () => {
           <ExitToAppRoundedIcon />
         </button>
         <input
-          className="w-48 p-3 rounded-md text-gray-500 dark:text-gray-300 dark:bg-gray-700"
+          className="w-48 sm:w-96 p-3 rounded-md text-gray-500 dark:text-gray-300 dark:bg-gray-700"
           placeholder=" New task?"
           value={input}
           onChange={(e) => setInput(e.target.value)}
