@@ -1,8 +1,6 @@
 // import firebase from "firebase/app";
 import { db } from "../utils/firebase";
 import { useState } from "react";
-import { ListItem, TextField } from "@material-ui/core";
-import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import SaveAltRoundedIcon from '@material-ui/icons/SaveAltRounded';
 
@@ -27,15 +25,12 @@ export const TaskItem = (props) => {
     db.collection("tasks").doc(props.id).delete();
   };
   return (
-    <div className="flex text-white dark:text-gray-400 ">
+    <div className="flex font-mono text-white dark:text-gray-400 mt-10">
       {/* <h2>{props.title}</h2> */}
-      <div className=" mx-10">
-        <TextField
-          // label="Edit task"
+      <div >
+        <input
+        className=" w-44 p-3  bg-transparent border-b-2 dark:border-gray-400"
           value={title}
-          InputLabelProps={{
-            shrink: true,
-          }}
           // .......👇 tsx は型を指定。e:React.ChangeEvent<HTMLInputElement>
           onChange={(e) => setTitle(e.target.value)}
         />
