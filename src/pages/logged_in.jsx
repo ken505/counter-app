@@ -69,18 +69,24 @@ const LoggedIn = () => {
 
       <div className="flex justify-center">
         <button
-          className="mr-2 hover:opacity-60 dark:hover:opacity-50"
+          className="mr-2 hover:opacity-60 dark:hover:opacity-50
+          focus:outline-none focus:ring rounded-md"
           onClick={signOut}
         >
           <ExitToAppRoundedIcon />
         </button>
         <input
-          className="w-48 sm:w-96 p-3 rounded-md text-gray-500 dark:text-gray-300 dark:bg-gray-700"
+          className="w-48 sm:w-96 p-3 rounded-md focus:outline-none focus:ring
+        text-gray-500 dark:text-gray-300 dark:bg-gray-700"
           placeholder=" New task?"
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <button disabled={!input} onClick={newTask}>
+        <button
+          className="focus:outline-none focus:ring rounded-md"
+          disabled={!input}
+          onClick={newTask}
+        >
           <AddToPhotosRounded className="text-white dark:text-gray-400 mx-2" />
         </button>
       </div>

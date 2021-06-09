@@ -38,7 +38,7 @@ const Home = () => {
     <div
       className="font-mono text-gray-100 dark:text-gray-400
     bg-gradient-to-tr from-green-400 dark:from-gray-900 
-    to-blue-400 dark:to-purple-800
+    to-blue-400 dark:to-purple-800 
     "
     >
       <LocalHead />
@@ -50,7 +50,7 @@ const Home = () => {
           <p className="text-xl mb-1">E-mail</p>
           <div>
             <input
-              className="w-64 p-3 rounded-md text-gray-500 dark:text-gray-300 dark:bg-gray-700"
+              className="w-64 p-3 rounded-md text-gray-500 dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring focus:border-blue-300"
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
@@ -62,7 +62,7 @@ const Home = () => {
           <p className="text-xl mt-5 mb-1">Password</p>
           <div className="mb-10">
             <input
-              className="w-64 p-3 rounded-md text-gray-500 dark:text-gray-300 dark:bg-gray-700"
+              className="w-64 p-3 rounded-md text-gray-500 dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring focus:border-blue-300"
               type="password"
               name="password"
               value={password}
@@ -73,17 +73,22 @@ const Home = () => {
           </div>
           <p>{error && <alert className="text-red-500">{error}</alert>}</p>
           <button
-            className="w-60 rounded-full border border-white dark:border-gray-400 text-xl px-5 py-3 mb-10
+            className="w-60 px-5 py-3 mb-10 text-xl
+            rounded-full border border-white focus:outline-none dark:border-gray-400  
             bg-gradient-to-tr from-green-400 dark:from-gray-900 
-    to-blue-400 dark:to-purple-800 bg-cover  hover:opacity-60 dark:hover:opacity-50"
+            to-blue-400 dark:to-purple-800 bg-cover
+            hover:opacity-60 dark:hover:opacity-50"
           >
             Login
           </button>
           <p className="text-mb mb-1">No account?</p>
           <Link href="/sign_up">
             <button
-              className="text-xs px-5 py-2 mb-8 rounded-full border border-white dark:border-gray-400 cursor-pointer bg-gradient-to-tr from-green-400 dark:from-gray-900 
-    to-blue-400 dark:to-purple-800 bg-cover hover:opacity-60 dark:hover:opacity-50 "
+              className="text-xs px-5 py-2 mb-8 rounded-full border
+              border-white focus:outline-none 
+              dark:border-gray-400 cursor-pointer bg-gradient-to-tr from-green-400 dark:from-gray-900 
+              to-blue-400 dark:to-purple-800 bg-cover 
+              hover:opacity-60 dark:hover:opacity-50 "
             >
               Create one
             </button>
@@ -100,7 +105,10 @@ const Home = () => {
           </div>
         </form>
       </div>
-      <SnsShare url="https://counter-app-theta.vercel.app/" title="Todo - App"/>
+      <SnsShare
+        url="https://counter-app-theta.vercel.app/"
+        title="Todo - App"
+      />
     </div>
   );
 };
