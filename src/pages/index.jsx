@@ -100,7 +100,7 @@ const Home = () => {
           </div>
         </form>
       </div>
-      <SnsShare url="https://counter-app-theta.vercel.app/" title="Memo - App"/>
+      <SnsShare url="https://counter-app-theta.vercel.app/" title="Todo - App"/>
     </div>
   );
 };
