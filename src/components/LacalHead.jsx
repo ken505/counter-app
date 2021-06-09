@@ -12,7 +12,10 @@ export const LocalHead = () => {
         property="og:description"
         content="This Todo-App is beautiful and easy to use. ✨"
       />
-      <meta property="og:image" content="" />
+      <meta
+        property="og:image"
+        content="https://user-images.githubusercontent.com/68226398/121315995-d3e62800-c943-11eb-836e-9ba1288958c0.jpg"
+      />
     </Head>
   );
 };
