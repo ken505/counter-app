@@ -146,7 +146,7 @@ const SignUp = () => {
       to-pink-400 dark:to-purple-900 hover:opacity-70 dark:hover:opacity-40
         "
             >
-              I'm quitting
+              Rethink !
             </button>
           </Link>
         </div>
