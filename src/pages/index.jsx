@@ -1,21 +1,12 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Alert,
-} from "reactstrap";
+import toast, { Toaster } from "react-hot-toast";
+import { useAuth } from "../context/AuthUserContext";
+import { LocalHead } from "../components/LacalHead";
 import { InfoModal } from "../components/InfoModal";
 import { SnsShare } from "../components/SnsShare";
-import { LocalHead } from "../components/LacalHead";
-import { useAuth } from "../context/AuthUserContext";
+// import { Container } from "reactstrap";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -34,6 +25,8 @@ const Home = () => {
       });
     event.preventDefault();
   };
+  // const notify = () => toast({ error });
+  const notify = () => toast(<p className="text-red-500">{error}</p>);
   return (
     <div
       className="font-mono text-gray-100 dark:text-gray-400
@@ -71,16 +64,23 @@ const Home = () => {
               placeholder="Password"
             />
           </div>
-          <p>{error && <alert className="text-red-500">{error}</alert>}</p>
-          <button
-            className="w-60 px-5 py-3 mb-10 text-xl
+          {/* <button onClick=>Make me a toast</button> */}
+          {/* {error && <p className="text-red-500">{error}</p>} */}
+          {/* {error && <p>{notify}</p>} */}
+
+          <div>
+            <button
+              className="w-60 px-5 py-3 mb-10 text-xl
             rounded-full border border-white focus:outline-none dark:border-gray-400  
             bg-gradient-to-tr from-green-400 dark:from-gray-900 
             to-blue-400 dark:to-purple-800 bg-cover
             hover:opacity-60 dark:hover:opacity-50"
-          >
-            Login
-          </button>
+            >
+              Login
+              {error && notify()}
+            </button>
+            <Toaster className="text-red-500" />
+          </div>
           <p className="text-mb mb-1">No account?</p>
           <Link href="/sign_up">
             <button
