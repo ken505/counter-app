@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import toast, { Toaster } from "react-hot-toast";
+// import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../context/AuthUserContext";
 import { LocalHead } from "../components/LacalHead";
 import { InfoModal } from "../components/InfoModal";
@@ -25,8 +25,6 @@ const Home = () => {
       });
     event.preventDefault();
   };
-  // const notify = () => toast({ error });
-  const notify = () => toast(<p className="text-red-500">{error}</p>);
   return (
     <div
       className="font-mono text-gray-100 dark:text-gray-400
@@ -64,10 +62,7 @@ const Home = () => {
               placeholder="Password"
             />
           </div>
-          {/* <button onClick=>Make me a toast</button> */}
-          {/* {error && <p className="text-red-500">{error}</p>} */}
-          {/* {error && <p>{notify}</p>} */}
-
+          {error && <p className="text-red-500">{error}</p>}
           <div>
             <button
               className="w-60 px-5 py-3 mb-10 text-xl
@@ -77,9 +72,7 @@ const Home = () => {
             hover:opacity-60 dark:hover:opacity-50"
             >
               Login
-              {error && notify()}
             </button>
-            <Toaster className="text-red-500" />
           </div>
           <p className="text-mb mb-1">No account?</p>
           <Link href="/sign_up">
