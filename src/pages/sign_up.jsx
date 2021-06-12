@@ -82,7 +82,7 @@ const SignUp = () => {
     >
       <form onSubmit={onSubmit}>
         <p className="text-3xl font-bold mb-7">Create an account</p>
-        <label for="signUpEmail" className="text-xl">
+        <label className="text-xl">
           Email
         </label>
         <div className="mb-5">
@@ -97,9 +97,7 @@ const SignUp = () => {
             placeholder="Email"
           />
         </div>
-        <label for="signUpPassword" className="text-xl">
-          Password
-        </label>
+        <label className="text-xl">Password</label>
         <div className="mb-5">
           <input
             className="w-64 p-3 mt-1 rounded-md dark:bg-gray-700 dark:text-gray-300
@@ -112,9 +110,7 @@ const SignUp = () => {
             placeholder="Password"
           />
         </div>
-        <label for="signUpPassword2" className="text-xl">
-          Confirm Password
-        </label>
+        <label className="text-xl">Confirm Password</label>
         <div className="mb-10">
           <input
             className="w-64 p-3 mt-1 rounded-md dark:bg-gray-700 dark:text-gray-300
@@ -127,7 +123,7 @@ const SignUp = () => {
             placeholder="Password"
           />
         </div>
-        <p>{error && <alert className="text-red-500">{error}</alert>}</p>
+        {error && <p className="text-red-500">{error}</p>}
         <div>
           <button
             className=" px-5 py-3 w-60 mb-12 rounded-full border border-white dark:border-gray-300 focus:outline-none dark:text-gray-200
