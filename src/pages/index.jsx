@@ -7,6 +7,7 @@ import { SnsShare } from "../components/SnsShare";
 import { LoginButton } from "../components/Atoms/LoginButton";
 import { CreateOneButton } from "../components/Atoms/CreateOneButton";
 import { TrialAccount } from "../components/Atoms/TrialAccount";
+import { LayoutIndex } from "../components/Layout/LayoutIndex";
 // import toast, { Toaster } from "react-hot-toast";
 
 const Home = () => {
@@ -27,13 +28,7 @@ const Home = () => {
     e.preventDefault();
   };
   return (
-    <div
-      className="font-mono text-gray-100 dark:text-gray-400
-      bg-gradient-to-tr 
-    from-green-400 dark:from-gray-900 
-    to-blue-400 dark:to-purple-800 
-    "
-    >
+    <LayoutIndex>
       <LocalHead />
       <InfoModal />
       <div className="min-h-screen grid grid-cols-1 items-center text-center ">
@@ -71,11 +66,8 @@ const Home = () => {
           <TrialAccount />
         </form>
       </div>
-      <SnsShare
-        url="https://counter-app-theta.vercel.app/"
-        title="Todo - App"
-      />
-    </div>
+      <SnsShare />
+    </LayoutIndex>
   );
 };
 export default Home;
