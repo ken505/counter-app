@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/router";
+import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../context/AuthUserContext";
 import { LocalHead } from "../components/LacalHead";
 import { InfoModal } from "../components/InfoModal";
@@ -7,8 +8,6 @@ import { SnsShare } from "../components/SnsShare";
 import { LoginButton } from "../components/Atoms/LoginButton";
 import { CreateOneButton } from "../components/Atoms/CreateOneButton";
 import { TrialAccount } from "../components/Atoms/TrialAccount";
-import { LayoutIndex } from "../components/Layout/LayoutIndex";
-// import toast, { Toaster } from "react-hot-toast";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +18,9 @@ const Home = () => {
   const onSubmit = (e) => {
     setError(null);
     signInWithEmailAndPassword(email, password)
-      .then((authUser) => {
+      //....... ↓ authUser が使われていない。
+      // .then((authUser) => {
+      .then(() => {
         router.push("/logged_in");
       })
       .catch((error) => {
@@ -27,10 +28,24 @@ const Home = () => {
       });
     e.preventDefault();
   };
+  // ↓ ❗️エラー表示後、リロードしない状態からログインすると、
+  // react_devtools_backend.js:2560 Warning: Cannot update a component (`Toaster`) while rendering a different component (`Home`). To locate the bad setState() call inside `Home`, follow the stack trace as described in https://reactjs.org/link/setstate-in-render となる。
+  const notify = useMemo(() => toast(error), [error]);
   return (
-    <LayoutIndex>
+    <div
+      className="font-mono text-gray-100 dark:text-gray-400
+      bg-gradient-to-tr 
+    from-green-400 dark:from-gray-900 
+    to-blue-400 dark:to-purple-800"
+    >
       <LocalHead />
       <InfoModal />
+      {/* ↓ エラーの回数が表示されて困っている❗️ */}
+      {error && (
+        <div>
+          {notify} <Toaster />
+        </div>
+      )}
       <div className="min-h-screen grid grid-cols-1 items-center text-center ">
         <form onSubmit={onSubmit}>
           <h2 className="text-3xl font-bold mb-6">Todo-app</h2>
@@ -60,14 +75,14 @@ const Home = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          {error && <p className="text-red-500">{error}</p>}
+
           <LoginButton />
           <CreateOneButton />
           <TrialAccount />
         </form>
       </div>
       <SnsShare />
-    </LayoutIndex>
+    </div>
   );
 };
 export default Home;
