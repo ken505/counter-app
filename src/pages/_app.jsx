@@ -2,10 +2,10 @@ import "../styles/globals.css";
 import "tailwindcss/tailwind.css";
 import { AuthUserProvider } from "../context/AuthUserContext";
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = (props) => {
   return (
     <AuthUserProvider>
-      <Component {...pageProps} />
+      <props.Component {...props.pageProps} />
     </AuthUserProvider>
   );
 };
