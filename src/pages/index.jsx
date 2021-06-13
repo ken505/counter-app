@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-// import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../context/AuthUserContext";
 import { LocalHead } from "../components/LacalHead";
 import { InfoModal } from "../components/InfoModal";
 import { SnsShare } from "../components/SnsShare";
-// import { Container } from "reactstrap";
+// import toast, { Toaster } from "react-hot-toast";
 
 const Home = () => {
   const [email, setEmail] = useState("");

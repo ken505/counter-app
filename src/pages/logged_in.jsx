@@ -4,12 +4,8 @@ import { AddToPhotosRounded } from "@material-ui/icons";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 import { db } from "../utils/firebase";
 import { useAuth } from "../context/AuthUserContext";
-import { TaskItem } from "../components/TaskItem";
 import { LocalHead } from "../components/LacalHead";
-
-// import { Container, Row, Col, Button } from "reactstrap";
-
-import { FormControl, List, TextField } from "@material-ui/core";
+import { TaskItem } from "../components/TaskItem";
 
 const LoggedIn = () => {
   // firebase のデータ

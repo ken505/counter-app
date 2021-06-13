@@ -1,51 +1,7 @@
-// import { InfoModal } from "../components/InfoModal";
-// import { SnsShare } from "../components/SnsShare";
-// import { TaskItem } from "../components/TaskItem";
-// import { LocalHead } from "../components/LacalHead";
-// import { Link } from "react-router-dom";
-
-// const SignUp = () => {
-// return (
-// <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800">
-
-{
-  /* <LocalHead />
-      <InfoModal />
-      <div>Login</div>
-      <Link href="/">
-      <a>back to index</a>
-      </Link>
-      <SnsShare
-        url={"https://counter-app-theta.vercel.app/"}
-        title={"Counter - App"}
-      /> */
-}
-
-{
-  /* 
-    </div>
-  );
-};
-export default SignUp; */
-}
-
 import { useState } from "react";
 import { useRouter } from "next/router";
-
-import { useAuth } from "../context/AuthUserContext";
 import Link from "next/link";
-
-// import {
-//   Container,
-//   Row,
-//   Col,
-//   Button,
-//   Form,
-//   FormGroup,
-//   Label,
-//   Input,
-//   Alert,
-// } from "reactstrap";
+import { useAuth } from "../context/AuthUserContext";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -56,7 +12,7 @@ const SignUp = () => {
 
   const { createUserWithEmailAndPassword } = useAuth();
 
-  const onSubmit = (event) => {
+  const onSubmit = (e) => {
     setError(null);
     //check if passwords match. If they do, create user in Firebase
     // and redirect to your logged in page.
@@ -71,7 +27,7 @@ const SignUp = () => {
           setError(error.message);
         });
     else setError("Password do not match");
-    event.preventDefault();
+    e.preventDefault();
   };
   //  custom-container
   return (
@@ -91,7 +47,7 @@ const SignUp = () => {
             focus:outline-none focus:ring"
             type="email"
             value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             name="email"
             id="signUpEmail"
             placeholder="Email"
@@ -105,7 +61,7 @@ const SignUp = () => {
             type="password"
             name="passwordOne"
             value={passwordOne}
-            onChange={(event) => setPasswordOne(event.target.value)}
+            onChange={(e) => setPasswordOne(e.target.value)}
             id="signUpPassword"
             placeholder="Password"
           />
@@ -118,7 +74,7 @@ const SignUp = () => {
             type="password"
             name="password"
             value={passwordTwo}
-            onChange={(event) => setPasswordTwo(event.target.value)}
+            onChange={(e) => setPasswordTwo(e.target.value)}
             id="signUpPassword2"
             placeholder="Password"
           />
@@ -150,5 +106,4 @@ const SignUp = () => {
     </div>
   );
 };
-
 export default SignUp;
