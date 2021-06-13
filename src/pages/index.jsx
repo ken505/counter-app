@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { useAuth } from "../context/AuthUserContext";
 import { LocalHead } from "../components/LacalHead";
 import { InfoModal } from "../components/InfoModal";
 import { SnsShare } from "../components/SnsShare";
+import { LoginButton } from "../components/Atoms/LoginButton";
+import { CreateOneButton } from "../components/Atoms/CreateOneButton";
+import { TrialAccount } from "../components/Atoms/TrialAccount";
 // import toast, { Toaster } from "react-hot-toast";
 
 const Home = () => {
@@ -64,41 +66,9 @@ const Home = () => {
             />
           </div>
           {error && <p className="text-red-500">{error}</p>}
-          <div>
-            <button
-              className="text-xl w-60 px-5 py-3 mb-10 
-              rounded-full border border-white dark:border-gray-400 focus:outline-none  
-              bg-gradient-to-tr 
-            from-green-400 dark:from-gray-900 
-            to-blue-400 dark:to-purple-800 
-              hover:opacity-60 dark:hover:opacity-50"
-            >
-              Login
-            </button>
-          </div>
-          <p className="text-mb mb-1">No account?</p>
-          <Link href="/sign_up">
-            <button
-              className="text-xs px-5 py-2 mb-8 rounded-full 
-              border border-white dark:border-gray-400 focus:outline-none 
-              bg-gradient-to-tr 
-            from-green-400 dark:from-gray-900 
-            to-blue-400 dark:to-purple-800
-              cursor-pointer  hover:opacity-60 dark:hover:opacity-50"
-            >
-              Create one
-            </button>
-          </Link>
-
-          <p className="text-sm mb-1">Trial Account</p>
-          <div className="text-md">
-            <span className="text-sm">Email</span>
-            <span className="font-bold mx-3">test@tmail.com</span>
-          </div>
-          <div className="text-md ">
-            <span className="text-sm">Password</span>
-            <span className="font-bold mx-3">123456</span>
-          </div>
+          <LoginButton />
+          <CreateOneButton />
+          <TrialAccount />
         </form>
       </div>
       <SnsShare
