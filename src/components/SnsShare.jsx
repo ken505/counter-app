@@ -1,22 +1,12 @@
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  LineShareButton,
-  LineIcon,
-} from "react-share";
+import { TwitterShareButton, TwitterIcon } from "react-share";
 
-export const SnsShare = (props) => {
-  const { url, title } = props;
+export const SnsShare = () => {
   return (
     <div className="flex flex-col fixed bottom-3 right-3 ">
-      {/*  */}
-      {/* sm:flex-row sm:static  */}
       <TwitterShareButton
         className="focus:outline-none focus:ring rounded-md"
-        url={url}
-        title={title}
+        url="https://counter-app-theta.vercel.app/"
+        title="Todo - App"
       >
         <TwitterIcon
           size={32}
@@ -24,24 +14,6 @@ export const SnsShare = (props) => {
           className="hover:opacity-70 dark:opacity-40 mx-1 my-1"
         />
       </TwitterShareButton>
-      {/* <LineShareButton
-        className="focus:outline-none focus:ring rounded-md"
-        url={url} title={title}>
-        <LineIcon
-          size={32}
-          round
-          className=" hover:opacity-70 dark:opacity-40 mx-1 my-1"
-        />
-      </LineShareButton>
-      <FacebookShareButton
-        className="focus:outline-none focus:ring rounded-md"
-        url={url}>
-        <FacebookIcon
-          size={32}
-          round
-          className=" hover:opacity-70 dark:opacity-40  mx-1 my-1"
-        />
-      </FacebookShareButton> */}
     </div>
   );
 };
