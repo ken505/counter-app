@@ -58,11 +58,11 @@ const LoggedIn = () => {
   return (
     <div
       className="min-h-screen px-5 py-16 
-    font-mono text-gray-100 dark:text-gray-400
-    bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800"
+      font-mono text-gray-100 dark:text-gray-400
+      bg-gradient-to-tr 
+    from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800"
     >
       <LocalHead />
-
       <div className="flex justify-center">
         <button
           className="mr-2 hover:opacity-60 dark:hover:opacity-50
@@ -72,8 +72,9 @@ const LoggedIn = () => {
           <ExitToAppRoundedIcon />
         </button>
         <input
-          className="w-48 sm:w-96 p-3 rounded-md focus:outline-none focus:ring
-        text-gray-500 dark:text-gray-300 dark:bg-gray-700"
+          className="text-gray-500 dark:text-gray-300 
+          w-48 sm:w-96 p-3 rounded-md focus:outline-none focus:ring
+        dark:bg-gray-700"
           placeholder=" New task?"
           value={input}
           onChange={(e) => setInput(e.target.value)}
