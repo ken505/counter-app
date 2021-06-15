@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { AddToPhotosRounded } from "@material-ui/icons";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
