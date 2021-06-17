@@ -2,7 +2,7 @@
 import { db } from "../utils/firebase";
 import { useState } from "react";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
-// import SaveAltRoundedIcon from "@material-ui/icons/SaveAltRounded";
+import SaveAltRoundedIcon from "@material-ui/icons/SaveAltRounded";
 
 // tsx
 // interface PROPS {
@@ -42,7 +42,7 @@ export const TaskItem = (props) => {
       >
         {/* ↓ onClick の機能があれば、ボタンがなくても
         なくてもフォーカスを外せば保存できるので省いた。 */}
-        {/* <SaveAltRoundedIcon className="text-white dark:text-gray-400 mx-1 " /> */}
+        <SaveAltRoundedIcon className="text-white dark:text-gray-400 mx-1 " />
       </button>
       <button
         className="focus:outline-none focus:ring rounded-md"
