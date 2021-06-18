@@ -25,7 +25,7 @@ const firebaseCredentials = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// if a Firebase instance doesn't exist, create one
+// Firebaseのインスタンスが存在しない場合は、インスタンスを作成します
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseCredentials)
 }
