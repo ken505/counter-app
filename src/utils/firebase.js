@@ -5,9 +5,10 @@
 // 参照元 url (2)
 // https://blog.logrocket.com/implementing-authentication-in-next-js-with-firebase/
 
-// (2) に準じて f を大文字にして F へ。
+
+// ↓ firebase SDK のコアを import
 import firebase from 'firebase/app';
-import '@firebase/firestore';
+import 'firebase/firestore';
 
 // (2)
 import 'firebase/auth';
