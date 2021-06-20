@@ -8,7 +8,7 @@ import { LocalHead } from "../components/LacalHead";
 import { TaskItem } from "../components/TaskItem";
 
 const LoggedIn = () => {
-  // firebase のデータ
+  // firestore から取得したデータを保持する state と初期値
   const [tasks, setTasks] = useState([{ id: "", title: "", count: "" }]);
 
   const { authUser, loading, signOut } = useAuth();
@@ -19,11 +19,13 @@ const LoggedIn = () => {
     if (!loading && !authUser) router.push("/");
   }, [authUser, loading]);
 
-  // 👇 app 読み込みは起動時の1回だけにしたいので第2引数は []
+  // ↓ マウント時にのみ firestore のデータを読み込む 
+  // データ読み込みは起動時の1回だけにしたいので第2引数は []
   useEffect(() => {
-    //    👇 返り値を受け取る変数
-    //               👇 firebase の collection データへアクセス
-    //                                    👇 onSnapshot データベースの内容を取得
+    //   ↓unSub (返り値を受け取る)
+    //          ..  ↓ firestore の collection へアクセス
+    //                                  ↓ onSnapshot 内容を取得
+    //                                  ............↓ snapshot 引数に取得内容を格納
     //                                       データベース側に変化があった時に内容を取得
     //                                              👇 firestore から取得したデータを
     // snapshoto 引数に入れる。
