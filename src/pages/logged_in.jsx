@@ -3,60 +3,74 @@ import { useRouter } from "next/router";
 import { AddToPhotosRounded } from "@material-ui/icons";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 import { db } from "../utils/firebase";
+import firebase from "firebase/app";
 import { useAuth } from "../context/AuthUserContext";
 import { LocalHead } from "../components/LacalHead";
 import { TaskItem } from "../components/TaskItem";
 
 const LoggedIn = () => {
   // firestore から取得したデータを保持する state と初期値
-  const [tasks, setTasks] = useState([{ id: "", title: "", count: "" }]);
-
+  const [tasks, setTasks] = useState([
+    {
+      id: "",
+      title: "",
+      // ❶
+      // uid: "",
+    },
+  ]);
+  // ↓ ユーザーが入力した文字列を保持する state 、初期値は空の文字列
+  const [input, setInput] = useState("");
   const { authUser, loading, signOut } = useAuth();
   const router = useRouter();
-
-  // Listen for changes on loading and authUser, redirect if needed
+  // ↓ loading と authUser の変更を監視し、必要に応じて sign/up page へ遷移
   useEffect(() => {
     if (!loading && !authUser) router.push("/");
   }, [authUser, loading]);
 
-  // ↓ マウント時にのみ firestore のデータを読み込む 
+  // ↓ マウント時にのみ firestore のデータを読み込む
   // データ読み込みは起動時の1回だけにしたいので第2引数は []
   useEffect(() => {
     //   ↓unSub (返り値を受け取る)
     //          ..  ↓ firestore の collection へアクセス
     //                                  ↓ onSnapshot 内容を取得
     //                                  ............↓ snapshot 引数に取得内容を格納
-    //                                       データベース側に変化があった時に内容を取得
-    //                                              👇 firestore から取得したデータを
-    // snapshoto 引数に入れる。
-    //  👇 firebase データベースの変化を監視
     const unSub = db.collection("tasks").onSnapshot((snapshot) => {
-      // 👇 取得した task オブジェクトの一覧を setTasks を使って tasks の state へ格納
+      // ↓ snapshot 引数内の object 一覧を setTasks を使って tasks の state へ格納
       setTasks(
-        // 👇 snapshot の中にドキュメントがあるので
+        // 👇 snapshot 内の docs を map で展開し、 doc に格納
         snapshot.docs.map((doc) => ({
+          // ... ↓ doc の id
           id: doc.id,
           title: doc.data().title,
-          count: doc.data().count,
+          // ❷
+          // uid: doc.data().uid,
         }))
       );
     });
-    //  クリーンナップ関数
+    // ↓ アンマウント時のクリーンナップ関数
     return () => unSub();
   }, []);
 
-  // 👇 ts の場合はを型指定してね。
-  const newTask = (e) => {
-    // 👇 firebase の 追加したい collection 指定。
-    // ........................👇 追加したいオブジェクトを指定。 id は自動で取得してくれるらしく、記入する必要はないそうだ。なんでかはよくわからん。
-    db.collection("tasks").add({ title: input });
-    // 👇 input state の初期化
+  // ts (e:React.ChangeEvent<HTMLImputElement>)
+  // ここの e ってどこで使うのでしょう❓
+  const newTask = () => {
+    const user = firebase.auth().currentUser;
+    if (user != null) {
+      user.providerData.forEach(function (profile) {
+        profile.uid;
+      });
+    }
+    console.log(user);
+
+    // ↓ フィールドが title の doc に input の値を collection に add
+    db.collection("tasks").add({
+      title: input,
+      uid: user.uid,
+      // ❸ ここへ uid を読み込んで task に add したい
+    });
+    // ↓ 次の入力に備えて input state の初期化
     setInput("");
   };
-
-  // ユーザーが入力した文字列を保持する state 、初期値は空の文字列。
-  const [input, setInput] = useState("");
-  // flex flex-col justify-center items-center
   return (
     <div
       className="min-h-screen px-5 py-16 
@@ -65,6 +79,7 @@ const LoggedIn = () => {
     from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800"
     >
       <LocalHead />
+
       <div className="flex justify-center">
         <button
           className="mr-2 hover:opacity-60 dark:hover:opacity-50
@@ -79,6 +94,7 @@ const LoggedIn = () => {
         dark:bg-gray-700"
           placeholder=" New task?"
           value={input}
+          // ts (e:React.ChangeEvent<HTMLImputElement>)
           onChange={(e) => setInput(e.target.value)}
         />
         <button
@@ -91,7 +107,13 @@ const LoggedIn = () => {
       </div>
       <div className="grid justify-center ">
         {tasks.map((task) => (
-          <TaskItem key={task.id} id={task.id} title={task.title} />
+          <TaskItem
+            key={task.id}
+            id={task.id}
+            title={task.title}
+            // ❹
+            // uid={task.uid}
+          />
         ))}
       </div>
     </div>
