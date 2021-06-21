@@ -8,17 +8,16 @@ import SaveAltRoundedIcon from "@material-ui/icons/SaveAltRounded";
 // interface PROPS {
 //   id: string;
 //   title: string;
-//   count: Number;
 // }
 
 // tsx
-// export function TaskItem:React.FC<PROPS> = (props) {
+// export const TaskItem:React.FC<PROPS> = (props) {
+// ↓ logeged_in tasks.map(task) の値を ( key id title ) props で受け取る
 export const TaskItem = (props) => {
-  // 👇 編集中の title を格納する state
-  // ...............................👇 state の初期値は props.title
+  // ↓ 編集中の title を state で保持 初期値 (props.title)
   const [title, setTitle] = useState(props.title);
-
   const editTask = () => {
+    // ................................ ↓ 上書き ( title のみ )
     db.collection("tasks").doc(props.id).set({ title: title }, { marge: true });
   };
   const deleteTask = () => {
@@ -32,7 +31,7 @@ export const TaskItem = (props) => {
           className=" w-44 sm:w-96 p-3 border-b-2 focus:outline-none focus:ring rounded-t-md 
           bg-transparent  dark:border-gray-400"
           value={title}
-          // .......👇 tsx は型を指定。e:React.ChangeEvent<HTMLInputElement>
+          // ts (e:React.ChangeEvent<HTMLInputElement>)
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
