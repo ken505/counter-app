@@ -15,7 +15,7 @@ const LoggedIn = () => {
       id: "",
       title: "",
       // ❶
-      // uid: "",
+      // userId: "",
     },
   ]);
   // ↓ ユーザーが入力した文字列を保持する state 、初期値は空の文字列
@@ -43,7 +43,7 @@ const LoggedIn = () => {
           id: doc.id,
           title: doc.data().title,
           // ❷
-          // uid: doc.data().uid,
+          // userId: doc.data().uid,
         }))
       );
     });
@@ -54,18 +54,18 @@ const LoggedIn = () => {
   // ts (e:React.ChangeEvent<HTMLImputElement>)
   // ここの e ってどこで使うのでしょう❓
   const newTask = () => {
-    const user = firebase.auth().currentUser;
-    if (user != null) {
-      user.providerData.forEach(function (profile) {
-        profile.uid;
-      });
-    }
-    console.log(user);
+    // const user = firebase.auth().currentUser;
+    // if (user != null) {
+    //   user.providerData.forEach(function (profile) {
+    //     profile.uid;
+    //   });
+    // }
+    // console.log(user);
 
     // ↓ フィールドが title の doc に input の値を collection に add
     db.collection("tasks").add({
       title: input,
-      uid: user.uid,
+      // userId: user.uid,
       // ❸ ここへ uid を読み込んで task に add したい
     });
     // ↓ 次の入力に備えて input state の初期化
@@ -112,7 +112,7 @@ const LoggedIn = () => {
             id={task.id}
             title={task.title}
             // ❹
-            // uid={task.uid}
+            // userId={task.uid}
           />
         ))}
       </div>
